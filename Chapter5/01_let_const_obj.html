@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01_let_const_obj</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	let username = 'PeiQi';
+	let age = 18
+
+	let obj = {
+	    username,
+		age,
+		getName () {                // 省略  getName: function () {
+ 	        return this.username;
+		}
+	}
+
+
+    console.log(obj.getName());
+
+</script>
+</body>
+</html>

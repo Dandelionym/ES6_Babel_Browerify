@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Function</title>
+</head>
+<body>
+<script type="text/javascript">
+
+	let obj = {name: 'Kobe'};
+
+	function foo(data1, data2) {
+		console.log(this, data1, data2);
+    }
+
+
+    // foo.call(obj, 333);                 // 直接从第二个参数开始依次传入
+	// foo.apply(obj, [111, 222, ])        // 第二个参数必须是数组
+
+	// bind 的特点： 绑定后不会立即调用，而是将函数返回
+	foo.bind(obj)(111, '222');              // 传参与call相同
+
+	// bind是回调的，那么比如定时器：
+	setTimeout(function () {
+        obj += 1
+    }.bind(obj), 1000)
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

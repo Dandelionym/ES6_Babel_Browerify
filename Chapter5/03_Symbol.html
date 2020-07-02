@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<script>
+
+	// Symbol 是原始数据类型
+	// 特点： Symbol的属性对应的值是唯一的，为了避免冲突
+	// 不能与其他数据进行计算，包括同字符串拼接
+	// for in ， for of 不会遍历到Symbol值
+
+	let symbol = Symbol();       // 不需要 new
+
+	let obj = {username: 'Peiqi', age: 18};
+	obj[symbol] = 'hello';
+
+    console.log(obj);
+
+
+</script>
+<script>
+
+
+
+</script>
+</body>
+</html>

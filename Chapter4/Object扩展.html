@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Object扩展</title>
+</head>
+<body>
+<script type="text/javascript">
+	let obj = {username: 'Peiqi', age: 18};
+
+	let cbg = Object.create(obj, {
+	    sex: {
+	        value: 'male',
+		    writable: false,
+		    enumerable: true
+	    },
+		canRun: {
+	        value: true,
+			writable: true,
+			configurable: true,
+			enumerable: true
+		}
+	});
+
+    console.log(cbg);
+    cbg.canRun = false;
+    console.log(cbg);
+
+    delete cbg.canRun;
+    console.log(cbg);
+
+    // for(let m in cbg){
+    //     console.log(m);
+    // }
+
+    console.log("----------");
+    let a = {firstName: 'Jat', lastName:'Brain'};
+	Object.defineProperties(a, {
+	    fullName: {
+	        // get方法，惰性求值，用到的时候才调用
+	        get: function () {        // 用来获取扩展属性的值
+		        return this.firstName + ' ' + this.lastName;
+            },
+            set: function (item) {      // 监听扩展属性，当扩展属性发生变化的时候，自动调用set
+				let name = item.split(' ');
+	            this.firstName = name[0];
+	            this.lastName = name[1];
+            }
+	    }
+	});
+
+	a.fullName = "Back Lure";
+    console.log(a.fullName);
+
+</script>
+
+<script type="text/javascript">
+	let obj3 = {
+	    firstName: 'Curry',
+		LastName: 'Stephen',
+		get fullName() {
+	        return this. firstName + ' ' + this.lastName
+		},
+		set fullName(data) {
+	        this.firstName = data+"---";
+			this.LastName = data;
+		}
+	};
+
+    console.log(obj3);
+
+
+</script>
+</body>
+</html>

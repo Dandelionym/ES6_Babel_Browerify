@@ -1,0 +1,27 @@
+npm install babel-cli browserify -g
+npm install babel-preset-es2015
+
+
+安装完babel之后，得创建一个.babelrc文件，里面注明es2015，里面写：
+{
+  "presets": ["es2015"]
+}
+
+
+
+在该项目的目录下面：
+    babel js/src -d js/dist
+    解释：
+        运行babel，目标是js文件下的src目录，编译以后直接放在js文件的dist目录下
+
+由于显示：'require is not defined' 因此需要CommonJS
+    browserify js/dist/app.js -o js/dist/dist.js
+    解释：
+        由于编译之前运用了模块化模式，因此，需要把require的常规js代码补充进来
+        运用CommonJS的思想转化，这里需要用到browserify工具
+        将某个app.js文件处理后输出到dist.js文件中
+
+如果需要修改，那么直接这样做：
+    babel js/src -d js/dist
+    browserify js/dist/app.js -o js/dist/dist.js
+
